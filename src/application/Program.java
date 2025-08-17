@@ -9,6 +9,7 @@ import java.util.Scanner;
 import entities.CarRental;
 import entities.Vehicle;
 import services.BrazilTaxService;
+import services.EuaTaxService;
 import services.RentalService;
 
 public class Program {
@@ -36,8 +37,9 @@ public class Program {
 		System.out.print("Enter price per day:");
 		double pricePerDay = sc.nextDouble();
 		
-		RentalService rentalService = new RentalService(pricePerDay, pricePerHour,new BrazilTaxService());
-		rentalService.processInvoice(cr);
+		
+		RentalService rentalServiceEUA = new RentalService(pricePerDay, pricePerHour,new EuaTaxService());
+		rentalServiceEUA.processInvoice(cr);
 		
 		
 		System.out.println("INVOICE:");
